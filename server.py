@@ -58,8 +58,8 @@ class Employees_Name(Resource):
 
 class ShowTest(Resource):
     def get(self):
-        f = open('test','r+')
-        r = f.read()
+        f = open('test','r')
+        r = f.read().strip()
         f.close()
         result = {'text in file': [i[0] for i in r]}
         return jsonify(result)
