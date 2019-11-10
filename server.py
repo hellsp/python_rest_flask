@@ -58,10 +58,10 @@ class Employees_Name(Resource):
 
 class ShowTest(Resource):
     def get(self):
-        f = open('test','r')
-        r = f.read().strip()
+        f = open('test', 'r')
+        r = f.read().rstrip()
         f.close()
-        result = {'text in file': [ ("Line: ",i) for i in r]}
+        result = {'text in file': [dict("Line: ", i) for i in r]}
         return jsonify(result)
 
 api.add_resource(Employees, '/employees') # Route_1
@@ -71,4 +71,4 @@ api.add_resource(ShowTest,'/showtest') # show test
 
 
 if __name__ == '__main__':
-     app.run("0.0.0.0",5000,True)
+     app.run("0.0.0.0", 5000, True)
