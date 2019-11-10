@@ -22,4 +22,7 @@ echo "Test URL: " http://aws-jks.dynu.net:5010/showtest'''
       }
     }
   }
+  environment {
+    t = 'test-python-rest-flask:v$BUILD_NUMBER'
+  }
 }
