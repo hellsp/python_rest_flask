@@ -14,7 +14,7 @@ class Employees(Resource):
         conn = db_connect.connect() # connect to database
         query = conn.execute("select * from employees") # This line performs query and returns json result
         return {'employees': [i[0] for i in query.cursor.fetchall()]} # Fetches first column that is Employee ID
-    
+
     def post(self):
         conn = db_connect.connect()
         print(request.json)
@@ -40,7 +40,7 @@ class Employees(Resource):
                              Email))
         return {'status':'success'}
 
-    
+
 class Tracks(Resource):
     def get(self):
         conn = db_connect.connect()
@@ -48,7 +48,7 @@ class Tracks(Resource):
         result = {'data': [dict(zip(tuple (query.keys()) ,i)) for i in query.cursor]}
         return jsonify(result)
 
-    
+
 class Employees_Name(Resource):
     def get(self, employee_id):
         conn = db_connect.connect()
@@ -61,7 +61,7 @@ class ShowTest(Resource):
         f = open('test', 'r')
         r = f.read().rstrip()
         f.close()
-        result = {'text in file': [dict("Line: ", i) for i in r]}
+        result = ([{'line': t, 'idmap': None, 'frequency': None} for t in r.items()])
         return jsonify(result)
 
 
