@@ -59,8 +59,9 @@ class Employees_Name(Resource):
 class ShowTest(Resource):
     def get(self):
         f = open('test','r+')
-        result = f.read()
+        r = f.read()
         f.close()
+        result = {'data': [("t: ", i)for i in r]}
         return jsonify(result)
 
 api.add_resource(Employees, '/employees') # Route_1
