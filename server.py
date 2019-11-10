@@ -61,9 +61,8 @@ class ShowTest(Resource):
         f = open('test', 'r')
         r = f.readlines()
         f.close()
-        return (r)
-        # result = ([{'line': t, 'idmap': None, 'frequency': None} for t in r])
-        # return jsonify(result)
+        result = ([{'line': t.strip()} for t in r])
+        return jsonify(result)
 
 
 api.add_resource(Employees, '/employees') # Route_1
