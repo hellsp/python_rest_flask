@@ -59,7 +59,7 @@ class Employees_Name(Resource):
 class ShowTest(Resource):
     def get(self):
         f = open('test', 'r')
-        r = f.read().rstrip()
+        r = f.readline().strip()
         f.close()
         return (r)
         # result = ([{'line': t, 'idmap': None, 'frequency': None} for t in r])
