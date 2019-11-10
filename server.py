@@ -61,7 +61,7 @@ class ShowTest(Resource):
         f = open('test', 'r')
         r = f.read().rstrip()
         f.close()
-        result = {'text in file': [for i in r]}
+        result = {'text in file': [dict("Line: ", i) for i in r]}
         return jsonify(result)
 
 
