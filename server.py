@@ -56,10 +56,15 @@ class Employees_Name(Resource):
         result = {'data': [dict(zip(tuple (query.keys()) ,i)) for i in query.cursor]}
         return jsonify(result)
 
+class ShowTest(Resource):
+    def get(self):
+        f = open('test')
+        return f
 
 api.add_resource(Employees, '/employees') # Route_1
 api.add_resource(Tracks, '/tracks') # Route_2
 api.add_resource(Employees_Name, '/employees/<employee_id>') # Route_3
+api.add_resource(ShowTest,'/showtest')
 
 
 if __name__ == '__main__':
