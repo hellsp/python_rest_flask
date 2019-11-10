@@ -61,7 +61,7 @@ class ShowTest(Resource):
         f = open('test','r')
         r = f.read().strip()
         f.close()
-        result = {'text in file': [i for i in r]}
+        result = {'text in file': [ ("Line: ",i) for i in r]}
         return jsonify(result)
 
 api.add_resource(Employees, '/employees') # Route_1
